@@ -5,6 +5,7 @@ import test from "node:test";
 const source = await readFile(new URL("../src/main.js", import.meta.url), "utf8");
 const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const logo = await readFile(new URL("../src/logo.svg", import.meta.url), "utf8");
+const chrome = await readFile(new URL("../src/chrome.js", import.meta.url), "utf8");
 const styles = await readFile(new URL("../src/styles.css", import.meta.url), "utf8");
 
 const requiredStages = [
@@ -88,7 +89,7 @@ test("document includes essential metadata and skip navigation", () => {
 test("adapted shield mark is used for visible branding without a hero watermark", () => {
   assert.match(logo, /viewBox="0 0 180 210"/);
   assert.match(source, /import logoUrl from "\.\/logo\.svg"/);
-  assert.match(source, /class="wordmark-logo"/);
+  assert.match(chrome, /class="wordmark-logo"/);
   assert.doesNotMatch(source, /class="hero-logo"/);
   assert.doesNotMatch(styles, /\.hero-logo/);
   assert.match(html, /rel="icon" href="\/src\/logo\.svg"/);

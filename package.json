@@ -10,6 +10,8 @@
     "test": "node --test"
   },
   "devDependencies": {
+    "marked": "^18.0.14",
+    "marked-gfm-heading-id": "^4.1.4",
     "vite": "^7.1.5"
   },
   "dependencies": {

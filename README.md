@@ -52,8 +52,13 @@ make dev PORT=4173
 index.html             Page metadata and application mount point
 src/main.js            Page content, workflow data, SVG illustrations, and behavior
 src/styles.css         Layout, visual system, responsive styles, and motion
+src/chrome.js          Shared nav and footer markup (landing page and docs)
+src/docs/              Markdown documentation, rendered to /docs/ at build time
+src/docs.css, src/docs-entry.js  Docs page styles and entry script
+tools/docs-plugin.js   Vite plugin: markdown to static HTML, sidebar, sitemap, robots.txt
 src/logo.svg           Adapted Traust brand mark
 tests/content.test.js  Content and structural regression checks
+tests/docs.test.js     Docs build, link and anchor checks
 dist/                  Generated production output
 ```
 

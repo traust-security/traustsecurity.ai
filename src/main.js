@@ -7,14 +7,7 @@ import "@fontsource/red-hat-mono/latin-400.css";
 import "@fontsource/red-hat-mono/latin-500.css";
 import logoUrl from "./logo.svg";
 import "./styles.css";
-
-const repositoryUrl = "https://github.com/traust-security/traust";
-const quickstartUrl = `${repositoryUrl}/blob/main/docs/getting-started.md`;
-
-const githubIcon = `
-  <svg aria-hidden="true" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.2.8-.6v-2.2c-3.4.7-4.1-1.4-4.1-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.4 11.4 0 0 0 12 .8Z"/>
-  </svg>`;
+import { footerHtml, githubIcon, navHtml, quickstartUrl, repositoryUrl } from "./chrome.js";
 
 const arrowIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -247,20 +240,7 @@ const app = document.querySelector("#app");
 
 app.innerHTML = `
   <div class="noise" aria-hidden="true"></div>
-  <nav class="site-nav" aria-label="Primary navigation">
-    <a class="wordmark" href="#top" aria-label="Traust home">
-      <img class="wordmark-logo" src="${logoUrl}" alt="" />
-      <span>traust</span>
-    </a>
-    <div class="nav-links">
-      <a href="#workflow">Workflow</a>
-      <a href="#platform">Platform</a>
-      <a href="${quickstartUrl}">Docs</a>
-    </div>
-    <a class="github-link" href="${repositoryUrl}" aria-label="Traust on GitHub">
-      ${githubIcon}<span>GitHub</span>
-    </a>
-  </nav>
+  ${navHtml({ logo: logoUrl })}
 
   <main id="main">
     <header class="hero" id="top">
@@ -474,11 +454,7 @@ app.innerHTML = `
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="wordmark footer-wordmark" href="#top"><img class="wordmark-logo" src="${logoUrl}" alt="" /><span>traust</span></a>
-    <p>Security assessment as a continuous, evidence-led workflow.</p>
-    <div><a href="${quickstartUrl}">Docs</a><a href="${repositoryUrl}">GitHub</a><span>Apache 2.0</span><span>v0.1.1</span></div>
-  </footer>
+  ${footerHtml({ logo: logoUrl })}
 `;
 
 const flipWords = ["skills", "agents", "scripts", "scanners", "more than a harness"];
